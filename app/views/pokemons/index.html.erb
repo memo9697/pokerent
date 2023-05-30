@@ -2,7 +2,7 @@
 <%= current_user %>
 
 <ul>
-  <% @restaurants.each do |pokemon| %>
+  <% @pokemons.each do |pokemon| %>
     <li><%= link_to pokemon.name, pokemon_path(pokemon) %></li>
   <% end %>
 </ul>
