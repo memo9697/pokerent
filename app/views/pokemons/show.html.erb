@@ -1,0 +1,7 @@
+<h1>show.html.erb</h1>
+<%= current_user %>
+
+<%= link_to "Delete",
+  pokemon_path(@pokemon),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

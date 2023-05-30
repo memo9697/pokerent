@@ -1,14 +1,18 @@
 class PokemonsController < ApplicationController
+  before_action :set_pokemon, only: [:show, :edit, :update, :destroy]
 
   def index
     @pokemons = Pokemon.all
   end
 
-  # def new
-  # end
+  def new
+    @pokemons = Pokemon.new
+  end
 
-  # def create
-  # end
+  def create
+    @pokemon = Pokemon.new(params[:pokemon])
+    @pokemon.save
+  end
 
   def show
   end
@@ -17,9 +21,24 @@ class PokemonsController < ApplicationController
   end
 
   def update
+    @pokemon.update(pokemon_params)
+    redirect_to pokemon_path(@pokemon)
   end
 
   def destroy
+    @pokemon.destroy
+    redirect_to pokemons_path, status: :see_other
+  end
+
+  private
+
+  def pokemon_params
+    params.require(:pokemon).permit(:name)
+    # add permit params with hugo and loic
+  end
+
+  def set_pokemon
+    @pokemon = Pokemon.find(params[:id])
   end
 end
 
