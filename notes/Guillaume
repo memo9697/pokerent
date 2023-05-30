@@ -3,3 +3,5 @@ rails generate model pokemon name:string level:integer gender:string first_type:
 rails generate migration AddRegularImageUrlToPokemons regular_img_url:string
 
 rails generate migration AddShinyImageUrlToPokemons shiny_img_url:string
+
+rails generate migration AddUsernameToUsers username:string
