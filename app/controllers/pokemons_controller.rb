@@ -10,7 +10,7 @@ class PokemonsController < ApplicationController
   end
 
   def create
-    @pokemon = Pokemon.new(params[:pokemon])
+    @pokemon = Pokemon.new(pokemeon_params)
     @pokemon.save
   end
 
