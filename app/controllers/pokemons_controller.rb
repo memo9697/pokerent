@@ -6,11 +6,12 @@ class PokemonsController < ApplicationController
   end
 
   def new
-    @pokemons = Pokemon.new
+    @pokemon = Pokemon.new
   end
 
   def create
-    @pokemon = Pokemon.new(pokemeon_params)
+    @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.user = current_user
     @pokemon.save
   end
 
@@ -33,7 +34,7 @@ class PokemonsController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name)
+    params.require(:pokemon).permit(:name, :level, :gender, :first_type, :second_type, :shiny_flag)
     # add permit params with hugo and loic
   end
 
