@@ -1,0 +1,7 @@
+<h1>new.html.erb</h1>
+<%= form_with model: @pokemon do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%# Add new fields with Loic and Hugo %>
+  <%= f.submit %>
+<% end %>
