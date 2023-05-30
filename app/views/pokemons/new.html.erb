@@ -1,7 +1,17 @@
 <h1>new.html.erb</h1>
-<%= form_with model: @pokemon do |f| %>
+<%= simple_form_for(@pokemon) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :level %>
+  <%= f.text_field :level %>
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+  <%= f.label :first_type %>
+  <%= f.text_field :first_type %>
+  <%= f.label :second_type %>
+  <%= f.text_field :second_type %>
+  <%= f.label :shiny_flag %>
+  <%= f.check_box :shiny_flag %>
   <%# Add new fields with Loic and Hugo %>
   <%= f.submit %>
 <% end %>
