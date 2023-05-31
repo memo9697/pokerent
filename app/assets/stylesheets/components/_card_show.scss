@@ -4,8 +4,8 @@
   justify-content: space-between;
   background-color: white;
   padding: 30px;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  box-shadow: 0 4px 1px 1px lightgray;
+  border-radius: 13px;
   width: 540px;
   margin: 0 auto;
   font-family: 'roboto';
@@ -25,4 +25,25 @@
 
 .card-info-pokemon p {
   color: gray;
+}
+
+.card-info-btn{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  background-color: #FF5841;
+  border-radius: 10px;
+  margin: 0 auto;
+  box-shadow: 0 2px 1px 1px lightgray;
+
+}
+
+.card-info-btn:hover{
+  background-color: white;
+  color: #FF5841;
+  transition: 0.3s;
 }
