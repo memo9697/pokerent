@@ -1,8 +1,4 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<% if user_signed_in? %>
-  <p>Hello <%= current_user.email %></p>
-<% else %>
-  <p>You are not login</p>
-<% end %>
+<div class="hometext">Location de pokemon</div>
+<div class="bottom-home">
+<%= link_to "Voir les pokemon disponibles", pokemons_path, class: "browse-btn" %>
+</div>
