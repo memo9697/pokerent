@@ -1,10 +1,17 @@
 <div class="navbar-pokerent">
   <div class="leftnav">
+
+  <% if user_signed_in? %>
+  <% text = current_user.email %>
+  <% else %>
+  <% text = "log-in" %>
+  <% end %>
+
   <%=link_to "Home", "/" , class: "text-decoration-none navtext" %>
   <%=link_to "Pokemon", pokemons_path, class: "text-decoration-none navtext" %>
   </div>
   <div class="rightnav">
   <%=link_to "Dashboard", pokemons_path, class: "text-decoration-none navtext" %>
-  <%=link_to "Log-in", new_user_session_path, class: "text-decoration-none navtext" %>
+  <%=link_to text, new_user_session_path, class: "text-decoration-none navtext" %>
   </div>
 </div>
