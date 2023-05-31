@@ -1,6 +1,10 @@
 <h1>show.html.erb</h1>
 <%= current_user %>
-
+<br>
+<h3><%= @pokemon.name %></h3>
+<p>lv. <%= @pokemon.level%></p>
+<h4><%= @pokemon.gender %></h4>
+<h4><%= @pokemon.first_type%></h4>
 <%= link_to "Delete",
   pokemon_path(@pokemon),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
