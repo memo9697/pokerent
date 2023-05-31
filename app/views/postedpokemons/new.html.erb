@@ -1,0 +1,12 @@
+
+<%= console %>
+
+<%= simple_form_for(@posted_pokemon, url: postedpokemons_path, method: :post) do |form| %>
+  <%= form.input :pokemon_id, collection: Pokemon.all, label: "Pokemon", prompt: "Select a Pokemon" %>
+  <%= form.input :level %>
+  <%= form.input :gender %>
+
+  <!-- ... autres champs du formulaire ... -->
+
+  <%= form.button :submit %>
+<% end %>

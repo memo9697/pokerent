@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'postedpokemons/index'
   get 'dashboard/index'
   devise_for :users
   root to: "pages#home"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :pokemons
+  resources :postedpokemons
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
   # get "pokemons", to: "pokemons#index", as: :pokemons
   # get "pokemons/new", to: "pokemons#new", as: :new_pokemon
