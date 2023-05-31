@@ -1,7 +1,0 @@
-rails generate model pokemon name:string level:integer gender:string first_type:string second_type:string shiny_flag:boolean description:text user:references
-
-rails generate migration AddRegularImageUrlToPokemons regular_img_url:string
-
-rails generate migration AddShinyImageUrlToPokemons shiny_img_url:string
-
-rails generate migration AddUsernameToUsers username:string
