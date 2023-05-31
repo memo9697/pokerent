@@ -1,0 +1,28 @@
+.white-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  width: 540px;
+  margin: 0 auto;
+  font-family: 'roboto';
+}
+
+.white-card img {
+  height: 240px;
+  border: 1px solid rgb(171, 171, 171);
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+
+.card-info-pokemon{
+  flex-grow: 1;
+  text-align: center;
+}
+
+.card-info-pokemon p {
+  color: gray;
+}

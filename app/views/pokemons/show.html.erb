@@ -1,11 +1,37 @@
-<h1>show.html.erb</h1>
-<%= current_user %>
-<br>
-<h3><%= @pokemon.name %></h3>
-<p>lv. <%= @pokemon.level%></p>
-<h4><%= @pokemon.gender %></h4>
-<h4><%= @pokemon.first_type%></h4>
-<%= link_to "Delete",
-  pokemon_path(@pokemon),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<div class="white-card">
+  <% if @pokemon.regular_img_url %>
+    <%= image_tag @pokemon.regular_img_url %>
+  <% else %>
+    <%= image_tag @pokemon.shiny_img_url %>
+  <% end %>
+
+
+  <div class="card-info-pokemon">
+    <h3><%= @pokemon.name %></h3>
+
+
+    <p>Level: <%= @pokemon.level%></p>
+
+    <% if @pokemon.gender == "male"  %>
+      <p>Gender : <i class="fa-solid fa-mars"></i></p>
+    <% else %>
+      <p>Gender : <i class="fa-solid fa-venus"></i></p>
+
+    <% end %>
+
+
+    <p>Type : <%= @pokemon.first_type%></p>
+
+    <% if @pokemon.user == current_user  %>
+
+      <%= link_to pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-danger" do %>
+        <i class="fa-sharp fa-solid fa-trash"></i>
+      <% end %>
+
+    <% else %>
+
+      <a href="#" class="btn btn-warning" >BOOK NOW</a>
+
+    <% end %>
+  </div>
+</div>
