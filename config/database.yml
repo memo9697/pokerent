@@ -84,4 +84,3 @@ production:
   database: pokerent_production
   username: pokerent
   password: <%= ENV["POKERENT_DATABASE_PASSWORD"] %>
-  url: <%= ENV["POKERENT_DATABASE_URL"] %>
