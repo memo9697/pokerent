@@ -20,18 +20,56 @@ guillaume = User.create!(email: "guillaume@gmail.com", password: "123456", usern
 loic = User.create!(email: "loic@gmail.com", password: "123456", username: "loic la clique")
 eva = User.create!(email: "eva@gmail.com", password: "123456", username: "eva le panda")
 
+users = [hugo, guillaume, loic, eva]
+
 p "-------#{User.count} user created--------"
 
-#owner = [hugo, guillaume, loic, eva]
+
+
+def shiny(pokemon)
+  shiny_pokemon = 7
+  range = (1..10).to_a.sample
+  if range == shiny_pokemon
+    {
+      shiny_img_url: pokemon["sprites"]["shiny"],
+      shiny_flag: true
+    }
+  else
+    {
+      shiny_img_url: pokemon["sprites"]["regular"],
+      shiny_flag: false
+    }
+  end
+end
+
 
 url = "https://api-pokemon-fr.vercel.app/api/v1/gen/1"
 
-  pokemons = JSON.parse(URI.open("#{url}").read)
-  pokemons.each do |pokemon|
 
-     Pokemon.create!(
-       name: pokemon["name"]["fr"],
-       user: hugo,
-     )
-  end
-  p "-------#{Pokemon.count} pokemon created--------"
+pokemons = JSON.parse(URI.open("#{url}").read)
+
+
+
+pokemons.each do |pokemon|
+  first_type = pokemon["types"][0]["name"]
+  second_type = pokemon["types"][1] ? pokemon["types"][1]["name"] : ""
+
+  img_data = shiny(pokemon)
+  level = rand(1..100)
+  gender = ["male", "female"].sample
+
+  Pokemon.create!(
+    pokedex_id: pokemon["pokedexId"],
+    name: pokemon["name"]["fr"],
+    regular_img_url: img_data[:shiny_flag] ? nil : img_data[:shiny_img_url],
+    shiny_img_url: img_data[:shiny_flag] ? img_data[:shiny_img_url] : nil,
+    first_type: first_type,
+    second_type: second_type,
+    shiny_flag: img_data[:shiny_flag],
+    level: level,
+    gender: gender,
+    user: users.sample
+  )
+end
+
+p "-------#{Pokemon.count} pokemon created--------"
