@@ -10,15 +10,36 @@
   background-color: white;
   box-shadow: 0 4px 1px 1px lightgray;
   border-radius: 13px;
-  margin-bottom: 20px;
-  display: flex;
+  margin-bottom: 40px;
+  text-align: center;
+  img{
+    top: 20px;
+    height: 100px;
+  }
 }
 
-.cardotext{
+@media(max-width: 992px) {
+  .cardos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cardos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.absolute{
+  position: absolute;
+}
+
+.cardoinfo{
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 15px;
   margin: 15px;
+
 }
 
 .graytext{

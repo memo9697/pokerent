@@ -1,12 +1,17 @@
 <div class="cardos">
   <% @pokemons.each do |pokemon| %>
     <div class="cardo">
-      <div class="cardotext">
+    <% if pokemon.shiny_flag == true %>
+      <% loic = pokemon.shiny_img_url %>
+      <% else %>
+      <% loic = pokemon.regular_img_url %>
+      <% end %>
+     <img src= <%= loic%> alt="">
+      <div class="cardoinfo">
+
         <div class="blacktext"><%= pokemon.name %></div>
 
-      </div>
-      <div>
-            <%= link_to "See details", pokemon_path(pokemon), class: "details-btn" %>
+          <%= link_to "See details", pokemon_path(pokemon), class: "details-btn" %>
       </div>
     </div>
   <% end %>
