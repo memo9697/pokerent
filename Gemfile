@@ -10,6 +10,7 @@ gem "rails", "~> 7.0.5"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem "dotenv-rails", groups: [:development, :test]
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -22,6 +23,7 @@ gem "jsbundling-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
+gem "cloudinary"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
