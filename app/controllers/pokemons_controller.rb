@@ -6,11 +6,13 @@ class PokemonsController < ApplicationController
   end
 
   def new
-    @pokemons = Pokemon.new
+    @pokemon = Pokemon.new
+
   end
 
   def create
-    @pokemon = Pokemon.new(pokemeon_params)
+    @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.user = current_user
     @pokemon.save
   end
 
