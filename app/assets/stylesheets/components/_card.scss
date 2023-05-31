@@ -1,0 +1,50 @@
+.cardos{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 725px;
+}
+
+.cardo{
+  height: 150px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 0 4px 1px 1px lightgray;
+  border-radius: 13px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.cardotext{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 15px;
+}
+
+.graytext{
+  color: #969696;
+}
+
+.blacktext{
+  color: black;
+}
+
+.details-btn{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  background-color: #FF5841;
+  border-radius: 10px;
+  margin: 0 auto;
+  box-shadow: 0 2px 1px 1px lightgray;
+}
+
+.details-btn:hover{
+  background-color: white;
+  color: #FF5841;
+  transition: 0.3s;
+}

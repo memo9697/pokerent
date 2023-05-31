@@ -1,8 +1,13 @@
-<h1>index.html.erb</h1>
-<%= current_user %>
-
-<ul>
+<div class="cardos">
   <% @pokemons.each do |pokemon| %>
-    <li><%= link_to pokemon.name, pokemon_path(pokemon) %></li>
+    <div class="cardo">
+      <div class="cardotext">
+        <div class="blacktext"><%= pokemon.name %></div>
+
+      </div>
+      <div>
+            <%= link_to "See details", pokemon_path(pokemon), class: "details-btn" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
