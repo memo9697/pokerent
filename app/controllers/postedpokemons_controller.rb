@@ -5,6 +5,7 @@ class PostedpokemonsController < ApplicationController
 
   def new
     @posted_pokemon = PostedPokemon.new
+    @pokemons = Pokemon.all
   end
 
   def create

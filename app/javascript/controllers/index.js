@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import DisplayPokemonInFormController from "./display_pokemon_in_form_controller"
+application.register("display-pokemon-in-form", DisplayPokemonInFormController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

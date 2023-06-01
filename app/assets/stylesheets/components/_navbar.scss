@@ -1,5 +1,4 @@
-.navbar-pokerent{
-
+.navbar-pokerent {
   height: 100px;
   width: 100%;
   border-radius: 13px;
@@ -10,6 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky; /* Ajout de la propriété position: sticky */
+  top: 0; /* Spécifiez la position de début pour la barre de navigation collante */
 }
 
 body{
