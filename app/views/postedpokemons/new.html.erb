@@ -1,12 +1,16 @@
+<div class="main-pok-form">
+  <div class="form-img">
 
-<%= console %>
+  </div>
+  <div class="form-info">
+    <%= simple_form_for(@posted_pokemon, url: postedpokemons_path, method: :post) do |form| %>
+      <%= form.input :pokemon_id, collection: Pokemon.all, label: "Pokemon", prompt: "Select a Pokemon" %>
+      <%= form.input :level %>
+      <%= form.input :gender %>
 
-<%= simple_form_for(@posted_pokemon, url: postedpokemons_path, method: :post) do |form| %>
-  <%= form.input :pokemon_id, collection: Pokemon.all, label: "Pokemon", prompt: "Select a Pokemon" %>
-  <%= form.input :level %>
-  <%= form.input :gender %>
+      <!-- ... autres champs du formulaire ... -->
 
-  <!-- ... autres champs du formulaire ... -->
-
-  <%= form.button :submit %>
-<% end %>
+      <%= form.button :submit %>
+    <% end %>
+  </div>
+</div>

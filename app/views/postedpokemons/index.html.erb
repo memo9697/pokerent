@@ -1,5 +1,5 @@
-
-<div class="cardos">
+<%= link_to "Add a pokemon", new_postedpokemon_path, class: "details-btn" %>
+<div class="cardos mt-3">
   <% @posted_pokemons.each do |posted_pokemon| %>
     <div class="cardo">
     <% if posted_pokemon.pokemon.shiny_flag == true %>
