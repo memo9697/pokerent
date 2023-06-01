@@ -1,10 +1,16 @@
-<div class="main-pok-form">
+<div class="main-pok-form" data-controller="display-pokemon-in-form">
   <div class="form-img">
+    <% @pokemons.each do |pokemon| %>
+    <div class="d-none" data-display-pokemon-in-form-target="pokemon" data-id="<%= pokemon.id%>">
+      <%= image_tag(pokemon.regular_img_url, class: "pok-img") %>
+    </div>
+
+    <% end %>
 
   </div>
   <div class="form-info">
     <%= simple_form_for(@posted_pokemon, url: postedpokemons_path, method: :post) do |form| %>
-      <%= form.input :pokemon_id, collection: Pokemon.all, label: "Pokemon", prompt: "Select a Pokemon" %>
+      <%= form.input :pokemon_id, collection: Pokemon.all, label: "Pokemon", prompt: "Select a Pokemon", input_html:{data:{action: "change->display-pokemon-in-form#display"}}%>
       <%= form.input :level %>
       <%= form.input :gender %>
 
