@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_201008) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_080757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,21 +20,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_201008) do
     t.date "end_date"
     t.string "status"
     t.bigint "user_id", null: false
-    t.bigint "pokemon_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pokemon_id"], name: "index_bookings_on_pokemon_id"
+    t.bigint "posted_pokemon_id"
+    t.index ["posted_pokemon_id"], name: "index_bookings_on_posted_pokemon_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
-    t.integer "level"
-    t.string "gender"
     t.string "first_type"
     t.string "second_type"
     t.boolean "shiny_flag"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "regular_img_url"
@@ -44,7 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_201008) do
     t.string "stats"
     t.string "height"
     t.string "weight"
-    t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 
   create_table "posted_pokemons", force: :cascade do |t|
@@ -53,7 +48,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_201008) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["pokemon_id"], name: "index_posted_pokemons_on_pokemon_id"
+    t.index ["user_id"], name: "index_posted_pokemons_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,8 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_201008) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "pokemons"
+  add_foreign_key "bookings", "posted_pokemons"
   add_foreign_key "bookings", "users"
-  add_foreign_key "pokemons", "users"
   add_foreign_key "posted_pokemons", "pokemons"
+  add_foreign_key "posted_pokemons", "users"
 end
