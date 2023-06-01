@@ -10,6 +10,7 @@ require 'open-uri'
 require 'json'
 
 puts "Cleaning up database..."
+Booking.destroy_all
 PostedPokemon.destroy_all
 Pokemon.destroy_all
 
