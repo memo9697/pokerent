@@ -19,8 +19,9 @@ class PostedpokemonsController < ApplicationController
 
   def create
     @posted_pokemon = PostedPokemon.new(posted_pokemon_params)
-    @posted_pokemon.save
-    redirect_to postedpokemon_path(@posted_pokemon)
+    @posted_pokemon.user = current_user
+    @posted_pokemon.save!
+    redirect_to postedpokemons_path
   end
 
   def show
@@ -29,6 +30,6 @@ class PostedpokemonsController < ApplicationController
   private
 
   def posted_pokemon_params
-    params.require(:posted_pokemon).permit(:pokemon_id, :level, :gender)
+    params.require(:posted_pokemon).permit(:pokemon_id, :level, :gender, :user_id)
   end
 end
