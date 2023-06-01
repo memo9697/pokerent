@@ -10,7 +10,8 @@
   align-items: center;
   justify-content: space-between;
   position: sticky; /* Ajout de la propriété position: sticky */
-  top: 0; /* Spécifiez la position de début pour la barre de navigation collante */
+  top: 0;
+  z-index: 100; /* Spécifiez la position de début pour la barre de navigation collante */
 }
 
 
