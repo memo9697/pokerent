@@ -1,4 +1,4 @@
-<%= link_to "Add a pokemon", new_postedpokemon_path, class: "details-btn" %>
+
 
 
 <div class="d-flex">
@@ -22,14 +22,21 @@
       </div>
     <% end %>
   </div>
+<div class="right-side-index">
+<%= link_to "Add a pokemon", new_postedpokemon_path, class: "left-btn" %>
 
 
   <% if  @clicked_pokemon %>
-    <div>
-      <h2>Show du Pokemon cliqué</h2>
-      <p><%= @clicked_pokemon.pokemon.name %></p>
-      <p><%= @clicked_pokemon.level %></p>
-      <p><%= @clicked_pokemon.gender %></p>
+    <div class="pok-infos">
+        <% if @clicked_pokemon.pokemon.shiny_flag == true %>
+        <% loic = @clicked_pokemon.pokemon.shiny_img_url %>
+        <% else %>
+        <% loic = @clicked_pokemon.pokemon.regular_img_url %>
+        <% end %>
+      <img class="img-poko" src= <%= loic%> alt="">
+      <div class="big-texto"><%= @clicked_pokemon.pokemon.name %></div>
+      <div class="small-texto d-flex">lv. <div class="texto"><%= @clicked_pokemon.level %></div></div>
+      <div class="texto"><%= @clicked_pokemon.gender %></div>
 
 
       <% if current_user %>
@@ -47,7 +54,7 @@
     </div>
 
   <% end %>
-
+</div>
 
 
 
