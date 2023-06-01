@@ -24,17 +24,36 @@
   </div>
 
 
+  <% if  @clicked_pokemon %>
+    <div>
+      <h2>Show du Pokemon cliqué</h2>
+      <p><%= @clicked_pokemon.pokemon.name %></p>
+      <p><%= @clicked_pokemon.level %></p>
+      <p><%= @clicked_pokemon.gender %></p>
 
-  <div>
-    <h2>Show du Pokemon cliqué</h2>
-    <p><%= @show_pokemon.pokemon.name %></p>
-    <p><%= @show_pokemon.level %></p>
-    <p><%= @show_pokemon.gender %></p>
 
-    <%= simple_form_for([@show_pokemon, @booking], url: postedpokemon_bookings_url(@show_pokemon.id)) do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+      <% if current_user %>
+        <%= simple_form_for([@clicked_pokemon, @booking], url: postedpokemon_bookings_url(@clicked_pokemon.id)) do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Connect to book this pokemon", new_user_session_path, class: "details-btn" %>
+
+      <% end %>
+
+
+    </div>
+
+  <% end %>
+
+
+
+
+
+
+
+
+
 </div>

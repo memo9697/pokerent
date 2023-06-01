@@ -3,7 +3,10 @@ class PostedpokemonsController < ApplicationController
     @posted_pokemons = PostedPokemon.all
 
     if params[:pokemon]
-      @show_pokemon = PostedPokemon.find(params[:pokemon])
+      @clicked_pokemon = PostedPokemon.find(params[:pokemon])
+      @booking = Booking.new
+    else
+      @clicked_pokemon = PostedPokemon.first
       @booking = Booking.new
     end
 
