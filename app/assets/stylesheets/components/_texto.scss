@@ -1,0 +1,61 @@
+.texto{
+  color: #969696;
+  font-weight: 700;
+  font-family: 'Roboto';
+}
+.pok-infos{
+  background-color: white;
+  border-radius: 13px;
+  box-shadow: 0 4px 1px 1px lightgray;
+  height: 500px;
+  width: 300px;
+  margin-top: 50px;
+  position: sticky;
+  top: 200px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.big-texto{
+  color: black;
+  font-weight: 700;
+  font-family: 'Roboto';
+}
+.small-texto{
+  color: lightgray;
+  font-family: 'Roboto';
+}
+.img-poko{
+  width: 140px;
+  top: 0;
+  margin: 0 auto;
+}
+
+.left-btn{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  background-color: #ff8741;
+  border-radius: 15px;
+  margin: 0 auto;
+  box-shadow: 0 2px 1px 1px lightgray;
+  position:sticky;
+  top: 120px;
+}
+.btn-add-class{
+  position: absolute;
+  right: 310px;
+  width: 150px;
+}
+
+.right-side-index{
+  position: relative;
+}
+
+.img-pos{
+  top: 0px;
+}
