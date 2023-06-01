@@ -2,6 +2,10 @@ class PostedpokemonsController < ApplicationController
   def index
     @posted_pokemons = PostedPokemon.all
 
+    if current_user
+      @posted_pokemons = PostedPokemon.where(user: current_user)
+    end
+
     if params[:pokemon]
       @clicked_pokemon = PostedPokemon.find(params[:pokemon])
       @booking = Booking.new

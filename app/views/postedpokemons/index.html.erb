@@ -6,13 +6,14 @@
 
   <div class="cardos mt-3">
     <% @posted_pokemons.each do |posted_pokemon| %>
+
       <div class="cardo">
-      <% if posted_pokemon.pokemon.shiny_flag == true %>
+        <% if posted_pokemon.pokemon.shiny_flag == true %>
         <% loic = posted_pokemon.pokemon.shiny_img_url %>
         <% else %>
         <% loic = posted_pokemon.pokemon.regular_img_url %>
         <% end %>
-      <img src= <%= loic%> alt="">
+        <img src= <%= loic%> alt="">
         <div class="cardoinfo">
 
           <div class="blacktext"><%= posted_pokemon.pokemon.name %></div>
