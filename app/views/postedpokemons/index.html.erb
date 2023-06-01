@@ -31,7 +31,10 @@
     <p><%= @show_pokemon.level %></p>
     <p><%= @show_pokemon.gender %></p>
 
-
-
+    <%= simple_form_for([@show_pokemon, @booking], url: postedpokemon_bookings_url(@show_pokemon.id)) do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

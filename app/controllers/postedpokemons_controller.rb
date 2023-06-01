@@ -4,6 +4,7 @@ class PostedpokemonsController < ApplicationController
 
     if params[:pokemon]
       @show_pokemon = PostedPokemon.find(params[:pokemon])
+      @booking = Booking.new
     end
 
   end
