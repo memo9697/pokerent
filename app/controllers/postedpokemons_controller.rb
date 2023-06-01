@@ -1,6 +1,15 @@
 class PostedpokemonsController < ApplicationController
   def index
     @posted_pokemons = PostedPokemon.all
+
+    if params[:pokemon]
+      @clicked_pokemon = PostedPokemon.find(params[:pokemon])
+      @booking = Booking.new
+    else
+      @clicked_pokemon = PostedPokemon.first
+      @booking = Booking.new
+    end
+
   end
 
   def new
