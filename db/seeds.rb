@@ -57,6 +57,13 @@ pokemons.each do |pokemon|
   img_data = shiny(pokemon)
   level = rand(1..100)
   gender = ["male", "female"].sample
+  stats = pokemon["stats"]
+  hp = stats["hp"]
+  atk = stats["atk"]
+  defe = stats["def"]
+  spe_atk = stats["spe_atk"]
+  spe_def = stats["spe_def"]
+  vit = stats["vit"]
 
   Pokemon.create!(
     pokedex_id: pokemon["pokedexId"],
@@ -68,6 +75,16 @@ pokemons.each do |pokemon|
     shiny_flag: img_data[:shiny_flag],
     level: level,
     gender: gender,
+    stats: {
+    hp: hp,
+    atk: atk,
+    defe: defe,
+    spe_atk: spe_atk,
+    spe_def: spe_def,
+    vit: vit
+    },
+    height: pokemon["height"],
+    weight: pokemon["weight"],
     user: users.sample
   )
 end

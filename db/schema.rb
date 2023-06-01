@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_181119) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_05_31_201008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +41,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_181119) do
     t.string "regular_img_url"
     t.string "shiny_img_url"
     t.string "pokedex_id"
+    t.string "stats"
+    t.string "height"
+    t.string "weight"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 
