@@ -3,7 +3,7 @@ class PostedpokemonsController < ApplicationController
     @posted_pokemons = PostedPokemon.all
 
     if current_user
-      @posted_pokemons = PostedPokemon.where(user: current_user)
+      @posted_pokemons = PostedPokemon.where.not(user: current_user)
     end
 
     if params[:pokemon]
