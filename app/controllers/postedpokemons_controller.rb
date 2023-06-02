@@ -37,7 +37,7 @@ class PostedpokemonsController < ApplicationController
     @posted_pokemon.user = current_user
     @posted_pokemon.status = "pending"
     @posted_pokemon.save!
-    redirect_to postedpokemons_path
+    redirect_to dashboard_path
   end
 
   def show
