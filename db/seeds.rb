@@ -92,14 +92,16 @@ p "-------creating postedpokemons--------"
 5.times do
   gender = ["male", "female"].sample
   level = (1..100).to_a.sample
-  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: hugo, gender: gender, level: level)
+  price_per_day = level * (10..50).to_a.sample
+  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: hugo, gender: gender, level: level, price_per_day: price_per_day)
 end
 
 
 3.times do
   gender = ["male", "female"].sample
   level = (1..100).to_a.sample
-  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: guillaume, gender: gender, level: level)
+  price_per_day = level * (10..50).to_a.sample
+  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: guillaume, gender: gender, level: level, price_per_day: price_per_day)
 
 
 end
@@ -108,7 +110,8 @@ end
 2.times do
   gender = ["male", "female"].sample
   level = (1..100).to_a.sample
-  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: loic, gender: gender, level: level)
+  price_per_day = level * (10..50).to_a.sample
+  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: loic, gender: gender, level: level, price_per_day: price_per_day)
 
 
 end
@@ -117,7 +120,8 @@ end
 5.times do
   gender = ["male", "female"].sample
   level = (1..100).to_a.sample
-  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: eva, gender: gender, level: level)
+  price_per_day = level * (10..50).to_a.sample
+  PostedPokemon.create!(pokemon: Pokemon.all.sample, user: eva, gender: gender, level: level, price_per_day: price_per_day)
 
 
 end

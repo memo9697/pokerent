@@ -53,13 +53,14 @@
       <div class="big-texto"><%= @clicked_pokemon.pokemon.name %></div>
       <div class="small-texto d-flex">lv. <div class="texto"><%= @clicked_pokemon.level %></div></div>
       <div class="texto"><%= @clicked_pokemon.gender %></div>
+      <div class="big-texto"><%= @clicked_pokemon.price_per_day %><%= " Poke $ per day" %></div>
 
 
       <% if current_user %>
         <%= simple_form_for([@clicked_pokemon, @booking], url: postedpokemon_bookings_url(@clicked_pokemon.id)) do |f| %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
-          <%= f.submit "Submit", class: "btn btn-primary" %>
+          <%= f.submit "Submit", class: "btn btn-primary"%>
         <% end %>
       <% else %>
         <%= link_to "Connect to book this pokemon", new_user_session_path, class: "details-btn" %>

@@ -16,6 +16,7 @@
       <%= form.input :pokemon_id, collection: Pokemon.all, label: false, prompt: "Select a Pokemon", input_html:{data:{action: "change->display-pokemon-in-form#display"}}%>
       <%= form.input :level %>
       <%= form.input :gender %>
+      <%= form.input :price_per_day %>
 
       <!-- ... autres champs du formulaire ... -->
 
