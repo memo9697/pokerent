@@ -8,7 +8,8 @@
             class: "form-control",
             placeholder: "Search for a Pokemon"
         %>
-      <%= submit_tag "Pikaa!", class: "btn btn-primary" %>
+      <%= submit_tag "Search!", class: "btn-primary" %>
+
     <% end %>
   </div>
 </div>
@@ -67,12 +68,8 @@
         <% end %>
       <% else %>
         <%= link_to "Connect to book this pokemon", new_user_session_path, class: "details-btn" %>
-
       <% end %>
-
-
     </div>
-
   <% end %>
 </div>
 

@@ -78,25 +78,29 @@
   transition: 0.3s;
 }
 
-.booking-btn{
+.booking-btn {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 15px;
+  width: 150px;
   text-decoration: none;
   color: white;
   padding: 5px;
   background-color: #FF5841;
   border-radius: 10px;
-  margin: 0 auto;
   box-shadow: 0 2px 1px 1px lightgray;
+  transition: width 0.6s;
+  margin: 0 auto;
 }
 
-.booking-btn:hover{
-  background-color: #b3e061;
-  color: black;
-  transition: 0.5s;
+.booking-btn:hover {
+  width: 160px;
 }
+
+
+
+
 #levelcard {
   font-size: 15px;
   padding:0px;
