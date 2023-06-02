@@ -56,7 +56,7 @@
       <div class="big-texto"><%= @clicked_pokemon.pokemon.name %></div>
       <div class="small-texto d-flex">lv. <div class="texto"><%= @clicked_pokemon.level %></div></div>
       <div class="texto"><%= @clicked_pokemon.gender %></div>
-      <div class="big-texto"><%= @clicked_pokemon.price_per_day %><%= " Poke $ per day" %></div>
+      <div class="texto"> <i class="fa-sharp fa-solid fa-coins" style="color: #fec700;"><%= @clicked_pokemon.price_per_day %> </i></div>
 
 
       <% if current_user %>
