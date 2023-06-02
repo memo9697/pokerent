@@ -1,3 +1,18 @@
+<%= render "shared/navbar" %>
+
+<div class="row justify-content-left">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: postedpokemons_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for a Pokemon"
+        %>
+      <%= submit_tag "Pikaa!", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
 
 
 
@@ -16,7 +31,10 @@
         <img src= <%= loic%> alt="">
         <div class="cardoinfo">
 
-          <div class="blacktext"><%= posted_pokemon.pokemon.name %></div>
+
+          <div class="blacktext">
+          <p id="levelcard"> Level : <%= posted_pokemon.level %> </p>
+          <%= posted_pokemon.pokemon.name %></div>
 
           <%= link_to "See details", postedpokemons_path(pokemon: posted_pokemon.id) , class: "details-btn" %>
         </div>
@@ -38,13 +56,14 @@
       <div class="big-texto"><%= @clicked_pokemon.pokemon.name %></div>
       <div class="small-texto d-flex">lv. <div class="texto"><%= @clicked_pokemon.level %></div></div>
       <div class="texto"><%= @clicked_pokemon.gender %></div>
+      <div class="texto"> <i class="fa-sharp fa-solid fa-coins" style="color: #fec700;"><%= @clicked_pokemon.price_per_day %> </i></div>
 
 
       <% if current_user %>
         <%= simple_form_for([@clicked_pokemon, @booking], url: postedpokemon_bookings_url(@clicked_pokemon.id)) do |f| %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
-          <%= f.submit "Submit", class: "btn btn-primary" %>
+          <%= f.submit "Book this Pokemon", class: "booking-btn"%>
         <% end %>
       <% else %>
         <%= link_to "Connect to book this pokemon", new_user_session_path, class: "details-btn" %>
