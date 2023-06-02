@@ -31,7 +31,10 @@
         <img src= <%= loic%> alt="">
         <div class="cardoinfo">
 
-          <div class="blacktext"><%= posted_pokemon.pokemon.name %></div>
+
+          <div class="blacktext">
+          <p id="levelcard"> Level : <%= posted_pokemon.level %> </p>
+          <%= posted_pokemon.pokemon.name %></div>
 
           <%= link_to "See details", postedpokemons_path(pokemon: posted_pokemon.id) , class: "details-btn" %>
         </div>
