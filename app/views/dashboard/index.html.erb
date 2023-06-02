@@ -1,71 +1,97 @@
+<div class="d-flex">
+  <div>
+    <div class="big-texto">My pokemons</div>
+      <div class="cardos mt-3">
+          <% @my_pokemons.each do |pokemon| %>
 
- <div class="big-texto">My pokemons</div>
+            <div class="cardo">
+              <% if pokemon.pokemon.shiny_flag == true %>
+              <% loic = pokemon.pokemon.shiny_img_url %>
+              <% else %>
+              <% loic = pokemon.pokemon.regular_img_url %>
+              <% end %>
+              <img src= <%= loic%> alt="">
 
- <div class="cardos mt-3">
-    <% @my_pokemons.each do |pokemon| %>
+                <div class="cardoinfo">
+                  <div class="blacktext"><%= pokemon.pokemon.name %></div>
+                  <div class="texto"><%= pokemon.status %></div>
+              </div>
+            </div>
+          <% end %>
+      </div>
+  </div>
 
-      <div class="cardo">
-        <% if pokemon.pokemon.shiny_flag == true %>
-        <% loic = pokemon.pokemon.shiny_img_url %>
-        <% else %>
-        <% loic = pokemon.pokemon.regular_img_url %>
+  <div class="owned-bookings">
+    <div class="big-texto">My bookings</div>
+
+      <% current_user.bookings.each do |booking| %>
+
+        <div class="book-card">
+        <% if booking.posted_pokemon.pokemon.shiny_flag == true %>
+          <% loic = booking.posted_pokemon.pokemon.shiny_img_url %>
+          <% else %>
+          <% loic = booking.posted_pokemon.pokemon.regular_img_url %>
+          <% end %>
+          <img src=<%=loic%> alt="">
+          <%= booking.posted_pokemon.pokemon.name %>
+          <%= booking.posted_pokemon.level %>
+          <%= booking.status %>
         <% end %>
-        <img src= <%= loic%> alt="">
-        <div class="cardoinfo">
-
-          <div class="blacktext"><%= pokemon.pokemon.name %></div>
-          <div class="texto"><%= pokemon.status %></div>
         </div>
-      </div>
-    <% end %>
   </div>
-
- <div class="big-texto">Rents Requests</div>
-
-<div class="req-cards">
-
- <% @my_pokemons.each do |pokemon| %>
- <% if pokemon.bookings.any? && pokemon.bookings.each{|b| b.status == "pending"}%>
-  <div class= "req-card">
-      <% if pokemon.pokemon.shiny_flag == true %>
-        <% loic = pokemon.pokemon.shiny_img_url %>
-        <% else %>
-        <% loic = pokemon.pokemon.regular_img_url %>
-        <% end %>
-        <img class="req-img"src= <%= loic%> alt="">
-        <%pokemon.bookings.each do |booking| %>
-          <div class="req-infos">
-          <div class="texto">Start on</div>
-            <%= booking.start_date.strftime('%-d %b. %y') %>
-            <div class="texto">End on</div>
-            <%= booking.end_date.strftime('%-d %b. %y') %>
-          </div>
-          <div class="req-pok-infos">
-          </div>
-          <div class="req-status" data-controller="change-status">
-            <div data-change-status-target = "status" >status:<%= booking.status %></div>
-            <% if booking.status == "pending" %>
-              <%= simple_form_for([booking], data: {change_status_target: "formaccepted",  action: "submit->change-status#accepted"}) do |f|%>
-                <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                <%= f.button :submit, "accept", class: "accept-btn" %>
-              <% end %>
-
-
-
-            <%= simple_form_for([booking], data: {change_status_target: "formrefused",  action: "submit->change-status#refused"}) do |f|%>
-                <%= f.input :status, as: :hidden, input_html: { value: "refused" } %>
-                <%= f.button :submit, "refused", class: "reject-btn" %>
-              <% end %>
-            <% end %>
-          </div>
-
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-<div class="owned-bookings">
-
-  <% current_user.bookings.each do |booking| %>
-  <% end %>
 </div>
+</div>
+</div>
+</div>
+
+  <div class="req-cards">
+    <div class="big-texto">Rents Requests</div>
+      <% @my_pokemons.each do |pokemon| %>
+
+        <% if pokemon.bookings.any? && pokemon.bookings.each{|b| b.status == "pending"}%>
+          <div class= "req-card d-flex justify-content-around align-items-center" style="height:">
+              <% if pokemon.pokemon.shiny_flag == true %>
+                <% loic = pokemon.pokemon.shiny_img_url %>
+                <% else %>
+                <% loic = pokemon.pokemon.regular_img_url %>
+              <% end %>
+
+              <img class="req-img"src= <%= loic%> alt="">
+
+              <%pokemon.bookings.each do |booking| %>
+                <div class="req-infos d-flex align-items-center justify-content-around">
+                  <div class="texto ">
+                    Starts on :
+                      <%= booking.start_date.strftime('%-d %b. %y') %>
+                      <br>
+                    End on :
+                      <%= booking.end_date.strftime('%-d %b. %y') %>
+                  </div>
+                </div>
+                <div class="req-pok-infos">
+                </div>
+
+                <div class="req-status" data-controller="change-status">
+                  <div class="status-pending" data-change-status-target = "status" >status : <%= booking.status %>
+                  <div class="d-flex jutify-content-arround">
+                    <% if booking.status == "pending" %>
+                    <%= simple_form_for([booking], data: {change_status_target: "formaccepted",  action: "submit->change-status#accepted"}) do |f|%>
+                      <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+                      <%= f.button :submit, "accept", class: "accept-btn" %>
+                    <% end %>
+
+
+
+                    <%= simple_form_for([booking], data: {change_status_target: "formrefused",  action: "submit->change-status#refused"}) do |f|%>
+                      <%= f.input :status, as: :hidden, input_html: { value: "refused" } %>
+                      <%= f.button :submit, "refused", class: "reject-btn" %>
+                    <% end %>
+                    <% end %>
+                </div>
+</div>
+
+          <% end %>
+        </div>
+      <% end %>
+  <% end %>
+
