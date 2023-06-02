@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.status = "pending"
 
     @booking.posted_pokemon = PostedPokemon.find(params[:postedpokemon_id])
 
