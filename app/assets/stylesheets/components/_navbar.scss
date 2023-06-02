@@ -5,7 +5,7 @@
   box-shadow: 0 4px 1px 1px lightgray;
   background-color: white;
   margin-top: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,4 +41,11 @@
 .rightnav{
   display: flex;
   margin-right: 20px;
+}
+
+.middle-nav{
+  .img-nav{
+    width: 150px;
+  }
+
 }

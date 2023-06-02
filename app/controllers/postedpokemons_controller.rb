@@ -14,6 +14,17 @@ class PostedpokemonsController < ApplicationController
       @booking = Booking.new
     end
 
+    if params[:query].present?
+      sql_subquery = "name LIKE :query OR first_type LIKE :query"
+      @posted_pokemons = @posted_pokemons.joins(:pokemon).where(sql_subquery, query: "%#{params[:query]}%")
+
+      if @posted_pokemons.any?
+        @clicked_pokemon = @posted_pokemons.first
+      else
+        @clicked_pokemon = nil
+      end
+    end
+
   end
 
   def new
@@ -26,7 +37,7 @@ class PostedpokemonsController < ApplicationController
     @posted_pokemon.user = current_user
     @posted_pokemon.status = "pending"
     @posted_pokemon.save!
-    redirect_to postedpokemons_path
+    redirect_to dashboard_path
   end
 
   def show

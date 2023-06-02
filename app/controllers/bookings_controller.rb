@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.posted_pokemon = PostedPokemon.find(params[:postedpokemon_id])
 
     if @booking.save!
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       redirect_to postedpokemons_path
     end
