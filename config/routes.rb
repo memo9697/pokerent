@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-
+  resources :bookings, only: [:update]
 
 
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'

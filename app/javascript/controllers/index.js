@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChangeStatusController from "./change_status_controller"
+application.register("change-status", ChangeStatusController)
+
 import DisplayPokemonInFormController from "./display_pokemon_in_form_controller"
 application.register("display-pokemon-in-form", DisplayPokemonInFormController)
 

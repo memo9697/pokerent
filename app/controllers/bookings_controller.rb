@@ -18,10 +18,28 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+
+
+
+
+    respond_to do |format|
+      if @booking.update(booking_params)
+        format.html { redirect_to dashboard_path }
+        format.json
+      else
+        format.html { render "dashboard", status: :unprocessable_entity }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
+    end
+
+
+  end
+
   private
 
-  def
-    booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end
