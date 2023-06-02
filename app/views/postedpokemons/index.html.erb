@@ -63,7 +63,7 @@
         <%= simple_form_for([@clicked_pokemon, @booking], url: postedpokemon_bookings_url(@clicked_pokemon.id)) do |f| %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
-          <%= f.submit "Submit", class: "btn btn-primary"%>
+          <%= f.submit "Book this Pokemon", class: "booking-btn"%>
         <% end %>
       <% else %>
         <%= link_to "Connect to book this pokemon", new_user_session_path, class: "details-btn" %>
