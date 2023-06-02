@@ -1,2 +1,16 @@
 <h1>Dashboard#index</h1>
 <p>Find me in app/views/dashboard/index.html.erb</p>
+
+
+<div class="d-flex">
+  <div>
+    <%# afficher les pokemons du user dispo à la location %>
+  </div>
+
+  <div>
+    <p><% @bookings.each do |booking|%></p>
+    <li><%= booking.posted_pokemon.pokemon.name %></li>
+    <% end %>
+  </div>
+
+</div>
