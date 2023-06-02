@@ -1,16 +1,72 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
 
+ <div class="big-texto">My pokemons</div>
 
-<div class="d-flex">
-  <div>
-    <%# afficher les pokemons du user dispo à la location %>
-  </div>
+ <div class="cardos mt-3">
+    <% @my_pokemons.each do |pokemon| %>
 
-  <div>
-    <p><% @bookings.each do |booking|%></p>
-    <li><%= booking.posted_pokemon.pokemon.name %></li>
+      <div class="cardo">
+        <% if pokemon.pokemon.shiny_flag == true %>
+        <% loic = pokemon.pokemon.shiny_img_url %>
+        <% else %>
+        <% loic = pokemon.pokemon.regular_img_url %>
+        <% end %>
+        <img src= <%= loic%> alt="">
+        <div class="cardoinfo">
+
+          <div class="blacktext"><%= pokemon.pokemon.name %></div>
+          <div class="texto"><%= pokemon.status %></div>
+        </div>
+      </div>
     <% end %>
   </div>
 
+ <div class="big-texto">Rents Requests</div>
+
+<div class="req-cards">
+
+ <% @my_pokemons.each do |pokemon| %>
+ <% if pokemon.bookings.any? && pokemon.bookings.each{|b| b.status == "pending"}%>
+  <div class= "req-card">
+      <% if pokemon.pokemon.shiny_flag == true %>
+        <% loic = pokemon.pokemon.shiny_img_url %>
+        <% else %>
+        <% loic = pokemon.pokemon.regular_img_url %>
+        <% end %>
+        <img class="req-img"src= <%= loic%> alt="">
+        <%pokemon.bookings.each do |booking| %>
+          <div class="req-infos">
+          <div class="texto">Start on</div>
+            <%= booking.start_date.strftime('%-d %b. %y') %>
+            <div class="texto">End on</div>
+            <%= booking.end_date.strftime('%-d %b. %y') %>
+          </div>
+          <div class="req-pok-infos">
+          </div>
+          <div class="req-status" data-controller="change-status">
+            <div data-change-status-target = "status" >status:<%= booking.status %></div>
+            <% if booking.status == "pending" %>
+              <%= simple_form_for([booking], data: {change_status_target: "formaccepted",  action: "submit->change-status#accepted"}) do |f|%>
+                <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+                <%= f.button :submit, "accept", class: "accept-btn" %>
+              <% end %>
+
+
+
+            <%= simple_form_for([booking], data: {change_status_target: "formrefused",  action: "submit->change-status#refused"}) do |f|%>
+                <%= f.input :status, as: :hidden, input_html: { value: "refused" } %>
+                <%= f.button :submit, "refused", class: "reject-btn" %>
+              <% end %>
+            <% end %>
+          </div>
+
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="owned-bookings">
+
+  <% current_user.bookings.each do |booking| %>
+  <% end %>
 </div>
+<%= console %>

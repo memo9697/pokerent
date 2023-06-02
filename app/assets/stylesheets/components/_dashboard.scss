@@ -1,0 +1,62 @@
+.req-cards{
+  width: 800px;
+}
+
+
+.req-card{
+  background-color: white;
+  box-shadow: 0 4px 1px 1px lightgray;
+  border-radius: 13px;
+  width: 800px;
+  height: 100px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.req-img{
+  height: 80px;
+  width: 80px;
+}
+
+.req-infos{
+
+}
+.req-status{
+
+}
+
+.req-pok-infos{
+
+}
+
+.pending{
+ color: rgb(255, 217, 0);
+ padding-left: 6px;
+ padding-right: 6px;
+ padding-top: 2px;
+ padding-bottom: 2px;
+ border-radius: 15px;
+ border: solid 2px rgb(255, 208, 0);;
+}
+
+.accept-btn{
+  color: white;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 15px;
+  background-color: rgb(88, 228, 113);
+}
+
+.reject-btn{
+  color: white;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 46);
+}

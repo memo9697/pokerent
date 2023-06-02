@@ -35,6 +35,7 @@ class PostedpokemonsController < ApplicationController
   def create
     @posted_pokemon = PostedPokemon.new(posted_pokemon_params)
     @posted_pokemon.user = current_user
+    @posted_pokemon.status = "pending"
     @posted_pokemon.save!
     redirect_to postedpokemons_path
   end
